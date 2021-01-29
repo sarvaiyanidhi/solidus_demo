@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample application to setup Solidus ecommerce platform and configure Braintree payment gateway
 
-Things you may want to cover:
+### Steps followed to setup application
 
-* Ruby version
+- Created new rails application with below command
+```
+  rails new solidus_demo --database=postgresql
+```
+- Setup Solidus into application by adding 'Solidus' gem in Gemfile and bundle install
+```
+  gem 'solidus'
+```
+- Setup basic configuration and migration by running below command
+```
+  bin/rails g solidus:install
+```
+- Run application
+```
+  bin/rails server
+```
+- Setup Braintree payment gateway into the application by adding below gem in file
+```
+  gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
+```
+- Setup new payment gateway configuration as mentioned in this link
+[https://github.com/solidusio/solidus_paypal_braintree#create-a-new-payment-method](https://github.com/solidusio/solidus_paypal_braintree#create-a-new-payment-method)
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+### References
 
-* Database initialization
+- [https://github.com/solidusio/solidus](https://github.com/solidusio/solidus)
+- [https://github.com/solidusio/solidus_paypal_braintree](https://github.com/solidusio/solidus_paypal_braintree)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
